@@ -8,7 +8,7 @@ Step 0.
 Set the model you want to use in the model_config.cfg file. The model must be available on Huggingface, and should be in the format of "organization/modelname", for example: "facebook/opt-350m"
 
 Step 1.
-Run the python script called llm.py. This loads the model and starts up the UDP server. In later versions it is planned to have Godot automatically run it, but that is WIP.
+Run the python script called ```llm.py```. This loads the model and starts up the UDP server. In later versions it is planned to have Godot automatically run it, but that is WIP.
 
 Step 2.
 Start Godot, and enable this addon.
