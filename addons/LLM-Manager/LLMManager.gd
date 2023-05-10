@@ -2,7 +2,7 @@ extends Node
 
 
 @onready var udp = PacketPeerUDP.new()
-signal text_generated
+signal text_generated(text)
 @export var ip="127.0.0.1"
 @export var port=4242
 # Called when the node enters the scene tree for the first time.
