@@ -16,18 +16,13 @@ while True:
     message, addr = s.recvfrom(1024)
     
     generation_args=json.loads(message.decode("utf-8"))
+    if not "gradual_return" in generation_args:
+        generation_args["gradual_return"]=False
+        
     print(generation_args)
 
-    if "gradual_return" in generation_args:
-        for i in generate(**generation_args):
-            print(addr,i)
-            s.sendto(i.encode("utf-8"),addr)
+    for i in generate(**generation_args):
+        print(addr,i)
+        s.sendto(i.encode("utf-8"),addr)
+    if generation_args["gradual_return"]:
         s.sendto("<eos>".encode("utf-8"),addr)
-        
-    else:
-        response=generate(
-            **generation_args
-        )
-
-        s.sendto(response.encode("utf-8"),addr)
-        print(addr,response)
