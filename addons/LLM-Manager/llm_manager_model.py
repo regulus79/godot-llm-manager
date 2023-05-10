@@ -54,6 +54,6 @@ def generate(init_prompt="",max_history=100,delimiter=None,max_length=10,tempera
 
     if not gradual_return:
         if return_only_new:
-            return tokenizer.decode(new_tokens)
+            yield tokenizer.decode(new_tokens)
         else:
-            return tokenizer.decode(totaltokens)
+            yield tokenizer.decode(totaltokens)
