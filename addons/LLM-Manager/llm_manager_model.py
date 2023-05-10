@@ -1,5 +1,3 @@
-
-#originallty copied from https://huggingface.co/docs/transformers/model_doc/opt
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 import torch.nn.functional as F
@@ -14,7 +12,7 @@ model = AutoModelForCausalLM.from_pretrained(model_name)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 
-def generate(init_prompt="",max_history=100,delimiter=None,max_length=10,temperature=0,punish_repetition=0.5,return_only_new=False,gradual_return=True):
+def generate(init_prompt="",max_history=100,delimiter=None,max_length=10,temperature=0,punish_repetition=0,return_only_new=True,gradual_return=False):
     inputs = tokenizer(init_prompt, return_tensors="pt")
 
     totaltokens=[]
